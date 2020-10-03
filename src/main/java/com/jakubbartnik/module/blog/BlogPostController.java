@@ -1,5 +1,6 @@
 package com.jakubbartnik.module.blog;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,8 +10,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class BlogPostController {
 
+    @Autowired
+    private PostMemoryStorageService postMemoryStorageService;
+
+
     @RequestMapping(path = "/blog/posts", method = RequestMethod.GET)
     public String getPostList(Model model){
+        model.addAttribute("posts", postMemoryStorageService.getPosts());
         return "blog/posts";
     }
 
@@ -21,7 +27,7 @@ public class BlogPostController {
 
     @RequestMapping(path = "blog/posts/{uuid}", method = RequestMethod.GET)
     public String getPost(@PathVariable("uuid") String uuid, Model model){
-        model.addAttribute("post", uuid);
+        model.addAttribute("post", postMemoryStorageService.getPost(uuid).get());
         return "blog/post";
     }
 }
