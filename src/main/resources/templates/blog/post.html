@@ -9,7 +9,15 @@
 <body>
 <div class="container">
     <div class="row">
-        <div class="row-12">Post: <span th:text="${post}"></span></div>
+        <div class="col-12">
+
+            <h2 th:text="${post.title}"></h2>
+
+            <p th:text="${post.text}"></p>
+
+            <a th:href="${'/blog/posts/'}" class="btn btn-info">back</a>
+
+        </div>
     </div>
 </div>
 </body>
