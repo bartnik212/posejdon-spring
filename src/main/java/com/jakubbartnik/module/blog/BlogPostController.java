@@ -16,13 +16,13 @@ public class BlogPostController {
 
     @RequestMapping(path = "/blog/posts", method = RequestMethod.GET)
     public String getPostList(Model model){
-        model.addAttribute("postFrom", new PostForm());
+        model.addAttribute("postForm", new PostForm());
         model.addAttribute("posts", postMemoryStorageService.getPosts());
         return "blog/posts";
     }
 
-    @RequestMapping(path = "blog/posts/", method = RequestMethod.POST)
-    public String createPost(PostForm postForm){
+    @RequestMapping(path = "/blog/posts", method = RequestMethod.POST)
+    public String createPost(PostForm postForm) {
         PostDto postDto = postMemoryStorageService.create(postForm.getTitle(), postForm.getText());
         return "redirect:/blog/posts/" + postDto.getUuid();
     }
