@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.UUID;
+
 @Controller
 public class BlogPostController {
 
@@ -24,4 +26,5 @@ public class BlogPostController {
         model.addAttribute("post", uuid);
         return "blog/post";
     }
+
 }
