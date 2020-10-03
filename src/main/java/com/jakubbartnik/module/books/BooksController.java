@@ -3,6 +3,7 @@ package com.jakubbartnik.module.books;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -23,7 +24,7 @@ public class BooksController {
     }
 
     @PostMapping("/rest/books")
-    public BooksEntity newBooks(@RequestBody BooksEntity booksEntity){
+    public BooksEntity newBooks(@Valid @RequestBody BooksEntity booksEntity){
         return booksRepository.saveAndFlush(booksEntity);
     }
 
