@@ -4,6 +4,25 @@ public class BookDto {
     private Long id;
     private String author;
     private String title;
+    private BookDetailsDto details;
+
+    public Long getId() {
+        return id;
+    }
+
+    public BookDto setId(Long id) {
+        this.id = id;
+        return this;
+    }
+
+    public BookDetailsDto getDetails() {
+        return details;
+    }
+
+    public BookDto setDetails(BookDetailsDto details) {
+        this.details = details;
+        return this;
+    }
 
     public String getAuthor() {
         return author;
