@@ -1,7 +1,6 @@
-package com.jakubbartnik.module.blog;
+package com.jakubbartnik.module.books;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.jakubbartnik.module.books.BooksEntity;
 
 import javax.persistence.*;
 
