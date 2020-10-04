@@ -1,5 +1,6 @@
 package com.jakubbartnik.module.books;
 
+import com.jakubbartnik.module.books.entity.BooksEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

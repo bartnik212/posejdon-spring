@@ -1,4 +1,4 @@
-package com.jakubbartnik.module.books;
+package com.jakubbartnik.module.books.entity;
 
 import javax.validation.constraints.NotNull;
 
