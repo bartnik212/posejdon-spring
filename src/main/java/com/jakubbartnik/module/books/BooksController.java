@@ -7,6 +7,7 @@ import com.jakubbartnik.module.books.mapper.BookFormMapper;
 import com.jakubbartnik.module.books.mapper.BookMapper;
 import com.jakubbartnik.module.books.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -18,7 +19,10 @@ public class BooksController {
     @Autowired
     private BookService bookService;
 
-    @GetMapping("/rest/books/{id}")
+    @GetMapping(value = "/rest/books/{id}", produces = {
+            MediaType.APPLICATION_JSON_VALUE,
+            MediaType.APPLICATION_XML_VALUE
+    })
     public BookDto getBook(@PathVariable Long id) {
         BooksEntity booksEntity = bookService.getOne(id);
         return BookMapper.map(booksEntity);
