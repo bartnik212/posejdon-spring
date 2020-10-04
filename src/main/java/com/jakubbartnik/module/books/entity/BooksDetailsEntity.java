@@ -25,4 +25,19 @@ public class BooksDetailsEntity {
     public String getPublisher() {
         return publisher;
     }
+
+    public BooksDetailsEntity setIsbn(String isbn) {
+        this.isbn = isbn;
+        return this;
+    }
+
+    public BooksDetailsEntity setLang(String lang) {
+        this.lang = lang;
+        return this;
+    }
+
+    public BooksDetailsEntity setPublisher(String publisher) {
+        this.publisher = publisher;
+        return this;
+    }
 }
