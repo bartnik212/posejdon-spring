@@ -15,7 +15,7 @@ public class BooksTagsMapper {
         if (tags == null) {
             return Set.of();
         }
-
+        
         return tags
                 .stream()
                 .map(BooksTagsMapper::map)

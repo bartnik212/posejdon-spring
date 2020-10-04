@@ -9,14 +9,7 @@ public class BookDto {
     private BookDetailsDto details;
     private Set<String> tags;
 
-    public Long getId() {
-        return id;
-    }
 
-    public BookDto setId(Long id) {
-        this.id = id;
-        return this;
-    }
 
     public Set<String> getTags() {
         return tags;
