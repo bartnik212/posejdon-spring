@@ -18,6 +18,19 @@ public class BooksEntity {
     @NotNull(message = "Title for book is required")
     private String title;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "details_id", referencedColumnName = "id")
+    private BooksDetailsEntity details;
+
+    public BooksDetailsEntity getDetails() {
+        return details;
+    }
+
+    public BooksEntity setDetails(BooksDetailsEntity details) {
+        this.details = details;
+        return this;
+    }
+
     public Long getId() {
         return id;
     }
