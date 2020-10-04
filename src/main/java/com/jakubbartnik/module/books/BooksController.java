@@ -5,7 +5,7 @@ import com.jakubbartnik.module.books.dto.BookForm;
 import com.jakubbartnik.module.books.entity.BooksEntity;
 import com.jakubbartnik.module.books.mapper.BookFormMapper;
 import com.jakubbartnik.module.books.mapper.BookMapper;
-import com.jakubbartnik.module.books.repository.BooksRepository;
+import com.jakubbartnik.module.books.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,37 +16,37 @@ import java.util.List;
 public class BooksController {
 
     @Autowired
-    private BooksRepository booksRepository;
+    private BookService bookService;
 
     @GetMapping("/rest/books/{id}")
     public BookDto getBook(@PathVariable Long id) {
-        BooksEntity booksEntity = booksRepository.findById(id).orElse(null);
+        BooksEntity booksEntity = bookService.getOne(id);
         return BookMapper.map(booksEntity);
     }
 
     @GetMapping("/rest/books")
     public List<BookDto> getBooks() {
-        List<BooksEntity> books = booksRepository.findAll();
+        List<BooksEntity> books = bookService.getAll();
         return BookMapper.map(books);
     }
 
     @PostMapping("/rest/books")
     public BookDto newBooks(@Valid @RequestBody BookForm bookForm) {
         BooksEntity book = BookFormMapper.map(bookForm);
-        book = booksRepository.saveAndFlush(book);
+        book = bookService.create(book);
         return BookMapper.map(book);
     }
 
     @PutMapping("/rest/books/{id}")
     public BookDto updateBooks(@PathVariable Long id,
                                @RequestBody BooksEntity booksEntity) {
-        BooksEntity book = booksRepository.saveAndFlush(booksEntity.setId(id));
+        BooksEntity book = bookService.update(id, booksEntity);
         return BookMapper.map(book);
     }
 
     @DeleteMapping("/rest/books/{id}")
     public void delete(@PathVariable Long id) {
-        booksRepository.deleteById(id);
+        bookService.delete(id);
     }
 
 }
