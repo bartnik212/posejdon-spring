@@ -1,4 +1,4 @@
-package com.jakubbartnik.module.books;
+package com.jakubbartnik.module.books.repository;
 
 import com.jakubbartnik.module.books.entity.BooksEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
