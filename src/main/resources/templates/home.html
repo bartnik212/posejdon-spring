@@ -12,6 +12,9 @@
 <section th:if="${posejdonConfig}">
     <h1>Config</h1>
     <p>
+        Env: <span th:text="${posejdonConfig.env}"></span>
+    </p>
+    <p>
         Domain: <span th:text="${posejdonConfig.domain}"></span>
     </p>
     <p>

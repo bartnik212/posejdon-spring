@@ -8,6 +8,9 @@ import java.util.List;
 @Configuration
 public class PosejdonConfig {
 
+    @Value("${env}")
+    private String env;
+
     @Value("${domain}")
     private String domain;
 
@@ -34,5 +37,9 @@ public class PosejdonConfig {
 
     public String getAdminPhone() {
         return adminPhone;
+    }
+
+    public String getEnv() {
+        return env;
     }
 }
