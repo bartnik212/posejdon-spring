@@ -8,5 +8,22 @@
 </head>
 <body>
 <h1 th:text="${greetings}">Hello ...</h1>
+
+<section th:if="${posejdonConfig}">
+    <h1>Config</h1>
+    <p>
+        Domain: <span th:text="${posejdonConfig.domain}"></span>
+    </p>
+    <p>
+        Themes: <span th:text="${posejdonConfig.themes}"></span>
+    </p>
+    <p>
+        Admin Email: <span th:text="${posejdonConfig.adminEmail}"></span>
+    </p>
+    <p>
+        Admin Phone: <span th:text="${posejdonConfig.adminPhone}"></span>
+    </p>
+
+</section>
 </body>
 </html>

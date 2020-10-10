@@ -11,7 +11,7 @@ public class PosejdonConfig {
     @Value("${domain}")
     private String domain;
 
-    @Value("#{'s{themes}'.split(',')}")
+    @Value("#{'${themes}'.split(',')}")
     private List<String> themes;
 
     @Value("${admin.email}")
