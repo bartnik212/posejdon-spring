@@ -1,5 +1,6 @@
 package com.jakubbartnik.module.home;
 
+import com.jakubbartnik.core.config.AwsConfigurationService;
 import com.jakubbartnik.core.config.PosejdonConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,6 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class HomeController {
+
+    @Autowired
+    private AwsConfigurationService awsConfigurationService;
 
     @Autowired
     private HomeService homeService;
@@ -25,7 +29,9 @@ public class HomeController {
 
     @RequestMapping("/config")
     public String getConfig(Model model){
+        model.addAttribute("awsRegion", awsConfigurationService.getAwsRegion());
         model.addAttribute("posejdonConfig", posejdonConfig);
         return "home";
     }
+
 }
