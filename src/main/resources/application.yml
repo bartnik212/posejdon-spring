@@ -1,0 +1,18 @@
+env: default
+server:
+  port: 8080
+  banner:
+    image:
+      location: hacker.png
+
+domain: jakubbartnik.com
+
+themes: WHITE, BLUE
+
+
+admin:
+  email: admin@jakubbartnik.com
+  phone: 000-111-222
+
+
+
