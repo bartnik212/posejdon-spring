@@ -14,8 +14,8 @@ public class PosejdonConfig {
     @Value("${domain}")
     private String domain;
 
-    @Value("#{'${themes}'.split(',')}")
-    private List<String> themes;
+    @Value("${themes}")
+    private String[] themes;
 
     @Value("${admin.email}")
     private String adminEmail;
@@ -27,9 +27,9 @@ public class PosejdonConfig {
         return domain;
     }
 
-    public List<String> getThemes() {
-        return themes;
-    }
+   public List<String> getThemes(){
+        return List.of(themes);
+   }
 
     public String getAdminEmail() {
         return adminEmail;
